@@ -1,0 +1,193 @@
+
+
+body {
+  font-family: "Fredoka", sans-serif;
+}
+
+
+.home {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: white;
+  padding: 6rem 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  margin: 1rem 0 2rem;
+  font-size: 1.1rem;
+}
+
+.cta-btn {
+  background: white;
+  color: #1e3a8a;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #f3f4f6;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem 1rem;
+  background: #f9fafb;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 280px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/* CATEGORIES */
+.categories {
+  padding: 4rem 1rem;
+}
+
+.categories h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.category-card {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* MENTORS */
+.mentors {
+  background: #f9fafb;
+  padding: 4rem 1rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.mentors h2 {
+  margin-bottom: 2rem;
+}
+
+.mentor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.mentor-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.mentor-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 4rem 1rem;
+}
+
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  font-family: "Nunito", sans-serif;
+}
+
+/* CTA SECTION */
+.cta-section {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: white;
+  padding: 5rem 1rem;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+}
+
+.cta-section p {
+  margin: 1rem 0 2rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .features,
+  .mentor-list,
+  .testimonial-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}

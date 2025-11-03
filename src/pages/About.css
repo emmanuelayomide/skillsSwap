@@ -1,0 +1,147 @@
+.about-page {
+  font-family: "Poppins", sans-serif;
+  color: #1f2937;
+}
+
+/* Hero Section */
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  background: #f9fafb;
+  flex-wrap: wrap;
+}
+
+.about-hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.about-hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about-hero-text p {
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.about-hero-image {
+ 
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero-image img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Mission Section */
+.about-mission {
+  text-align: center;
+  padding: 4rem 10%;
+  background: #ffffff;
+}
+
+.about-mission h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-mission p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* How It Works */
+.about-how {
+  background: #f3f4f6;
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.about-how h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.how-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.how-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-5px);
+}
+
+.how-card h3 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.how-card p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* CTA */
+.about-cta {
+  text-align: center;
+  padding: 4rem 10%;
+  background: #2563eb;
+  color: white;
+}
+
+.about-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.about-cta .cta-btn {
+  background: white;
+  color: #2563eb;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-cta .cta-btn:hover {
+  background: #1e3a8a;
+  color: white;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .about-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-hero-text {
+    margin-bottom: 2rem;
+  }
+}
