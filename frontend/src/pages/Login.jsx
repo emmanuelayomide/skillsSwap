@@ -1,21 +1,44 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Mail, Lock, LogIn } from "lucide-react";
 import "./Login.css";
 import LoginImg from "../assets/login.jpg"; 
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("User Logged In:", formData);
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/login", formData);
+
+      // Save the token in localStorage
+      localStorage.setItem("token", response.data.token);
+
+      // Navigate to dashboard
+      navigate("/dashboard");
+
+    } catch (err) {
+      setError(err.response?.data?.message || "Login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,8 +75,10 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="login-btn">
-            Log In <LogIn size={16} />
+          {error && <p className="error">{error}</p>}
+
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Logging in..." : <>Log In <LogIn size={16} /></>}
           </button>
         </form>
 

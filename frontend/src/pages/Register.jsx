@@ -1,33 +1,63 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Mail, Lock, User, ArrowRight } from "lucide-react";
 import "./Register.css";
-import RegisterImg from "../assets/register.jpg"; // replace with your own image
+import RegisterImg from "../assets/register.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [accountstatus, setAccountstatus] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("User Registered:", formData);
+    setError("");
+
+    if (formData.password !== formData.confirmPassword || formData.password.length<=7 ) {
+      return setError("Passwords do not match and must be 8 above length");
+    } else if(formData.name==="" || formData.email===""){
+      return setError("Username/Email Field can't be Empty")
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register",{name: formData.name, email: formData.email,password: formData.password,}
+      );
+
+      // Store token in localStorage
+      localStorage.setItem("token", response.data.token);
+      setAccountstatus(response.data.message)
+
+      // Redirect to dashboard
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="register-container">
-      {/* Left Image Section */}
       <div className="register-image">
         <img src={RegisterImg} alt="Register" />
       </div>
 
-      {/* Right Form Section */}
       <div className="register-form">
         <h2>Create Your Account</h2>
         <p>Join SkillSwap and start learning or teaching today!</p>
@@ -37,11 +67,11 @@ const Register = () => {
             <User size={18} />
             <input
               type="text"
-              name="fullName"
+              name="name"
               placeholder="Full Name"
-              value={formData.fullName}
+              value={formData.name}
               onChange={handleChange}
-              required
+            
             />
           </div>
 
@@ -53,7 +83,7 @@ const Register = () => {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
-              required
+            
             />
           </div>
 
@@ -81,8 +111,11 @@ const Register = () => {
             />
           </div>
 
-          <button type="submit" className="register-btn">
-            Sign Up <ArrowRight size={16} />
+          {error && <p className="error">{error}</p>}
+          {accountstatus? alert(accountstatus): ""}
+
+          <button type="submit" className="register-btn" disabled={loading}>
+            {loading ? "Creating account..." : <>Sign Up <ArrowRight size={16} /></>}
           </button>
         </form>
 

@@ -19,10 +19,12 @@ const Header = () => {
           <Link to="/">Home</Link>
           <a href="/about">About</a>
           <a href="/login">Login</a>
-          <Link to="/register" className="btn-register">
-            Register
-          </Link>
+          <Link to="/dashboard" > Dashboard</Link>
+          <Link to="/register" className="btn-register">Register</Link>
         </nav>
+        <div>
+          <button>Access Dashboard</button>
+        </div>
 
         {/* responsive menuy icon */}
         <div
