@@ -1,0 +1,10 @@
+.dashboard-layout{
+max-width: 1500px;
+margin: 0 auto;
+display: flex;
+gap: 10px;
+}
+.dashboard-content{
+  
+    flex: 1;
+}
