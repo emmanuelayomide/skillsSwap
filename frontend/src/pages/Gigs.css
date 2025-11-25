@@ -1,0 +1,202 @@
+:root{
+    --font-family1:"Fredoka", sans-serif;
+    --font-family2:"Poppins", sans-serif;
+}
+
+body{
+       background-color: #F7F7F7;
+}
+
+
+.pageName h1{
+    font-family: var(--font-family2);
+}
+.pageName h1{
+    letter-spacing: 2px;
+font-weight: 100;
+}
+
+.gigstatuspluscreate{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.status{
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex: 1;
+
+
+}
+.status a{
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3 ease-in-out;
+}
+.status a:hover{
+    color: #9017fabb;
+
+}
+.create{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  
+}
+.create button{
+    color: #fff;
+    background-color:#9017fabb;
+    padding: 8px 25px 8px 25px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    transition: 0.3 ease-in-out;
+    font-family: var(--font-family1);
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.create button:hover{
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+}
+/* gig Diplayes */
+.overallGig{
+   padding: 10px;
+    background-color: #fff;
+   
+    border-radius: 3px;
+}
+.gigDiplayed{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
+}
+.checkgigname{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 40%;
+   
+
+}
+.checkbox{
+    transform: scale(1.5);
+    color: rgb(0, 0, 0);
+}
+.checkgigname h3{
+    font-family: var(--font-family2);
+}
+.fourList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 60%;
+  
+
+
+}
+.thesameWidth1{
+    flex: 1;
+  
+}
+.thesameWidth2{
+    flex: 1;
+
+}
+.thesameWidth3{
+    flex: 1;
+
+}
+.thesameWidth4{
+    flex: 1;
+
+}
+.fourList p{
+    font-weight: 500;
+    font-family: var(--font-family1);
+}
+
+/* styling the gigs personal */
+.mygig{
+    display: flex;
+    gap: 10px;
+
+}
+.gigimageandtitle{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex: 40%;
+  
+}
+.gigimageandtitle img{
+    width: 50px;
+    
+
+}
+.gigAnalysis{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 60%;
+ 
+}
+.totalfront{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.total{
+    color: #fff;
+    background-color: #9017fabb;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mygig{
+ 
+    margin-top: 20px;
+}
+.mygig:hover{
+    background-color:rgba(0, 0, 0, 0.068);
+    cursor: pointer;
+}
+.delete-btn {
+color: #fff;
+background-color: rgba(255, 0, 0, 0.689);
+padding: 12px 25px 12px 25px ;
+border: none;
+border-radius: 0px;
+outline: none;
+cursor: pointer;
+}
+
+.delete-btn:hover{
+    color: #fff;
+    background-color: rgb(255, 0, 0);
+}
+
+.shortDisplay{
+color: #fff;
+background-color:#FF9326;
+padding:2px 0px 2px 0px;
+text-align: center;
+letter-spacing: 1.5px;
+
+}
+
+.nogigYet{
+    color: #fff;
+    background-color:#9017fa78;
+    text-align: center;
+    padding: 2px;
+}

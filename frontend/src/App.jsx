@@ -13,6 +13,9 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Course from "./pages/Course";
+import Gigs from "./pages/Gigs";
+import Newgig from "./pages/Newgig";
+import GigPreview from "./pages/GigPreview";
 
 
 
@@ -37,9 +40,12 @@ const App = () => {
 
            <Route  element={<DashboardLayout/>}>
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="gigsoffered" element={<Gigs/>}/>
         <Route path="/course" element={<Course/>} />
 
            </Route>
+           <Route path="/createNewGig" element={<Newgig/>}/> 
+           <Route path="/gigPreview" element={<GigPreview/>}/> 
         </Routes>
    
 

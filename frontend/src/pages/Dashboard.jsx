@@ -4,6 +4,8 @@ import WeeklyActivityChart from "../component/WeeklyActivityChart"
 import axios from "axios";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+
 
 import { User, Mail, Calendar, LogOut, Rocket, Search, MessageCircleMore, Bell, EllipsisVertical, Hammer, BookOpen, Award } from "lucide-react";
 import BackgroundImage from "../images/dashboardslide.png"
@@ -14,8 +16,11 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [userlogId, setUserlogId] = useState(null)
+  const [message, setMessage] = useState(""); 
+const [messageType, setMessageType] = useState("success"); // can be "success" or "error"
 
-  // Profile edit state
+  const fileInputRef = useRef(null);
+  // Profile edit stat
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
@@ -24,9 +29,9 @@ const Dashboard = () => {
 //   usersstats
 
 const [userStats, setUserStats] = useState([
-    { label: "Skills Offered", value: 0, icon: <Hammer/> },
-    { label: "Skills Learned", value: 0, icon: <BookOpen/> },
-    { label: "Completed Swaps", value: 0, icon: <Award/> },
+    { label: "Skills Offered", value: 0, icon: <Hammer/>, path:"/gigsoffered" },
+    { label: "Skills Learned", value: 0, icon: <BookOpen/>, path:"/skillsleraning" },
+    { label: "Completed Swaps", value: 0, icon: <Award/>, path:"/comletedCourse" },
   ]);
 const b = {
     // stylying my slider image
@@ -63,6 +68,13 @@ const b = {
         setName(response.data.user.name);
         setBio(response.data.user.bio || "");
         setUservalue(userValue)
+const numberofSkills = response.data.skilledOffered.length;
+
+      setUserStats([
+    { label: "Skills Offered", value:  numberofSkills, icon: <Hammer/>, path:"/gigsoffered" },
+    { label: "Skills Learned", value: 0, icon: <BookOpen/>, path:"/skillsleraning" },
+    { label: "Completed Swaps", value: 0, icon: <Award/>, path:"/comletedCourse" },
+  ]);
         
       } catch (err) {
         setError("Failed to fetch profile. Please login again.");
@@ -80,6 +92,57 @@ const b = {
     localStorage.removeItem("token");
     navigate("/login");
   };
+
+  // selectinng and adding new profile picture
+const handleFileChange = (e) => {
+  if (e.target.files && e.target.files[0]) {
+    const selectedFile = e.target.files[0];
+    // console.log(selectedFile)
+    uploadProfileImage(selectedFile);
+  }
+};
+
+const uploadProfileImage = async (file) => {
+  const formData = new FormData();
+  formData.append("profileImg", file);
+   const token = localStorage.getItem("token");
+
+
+
+
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/upload-profile-image",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    setUser(response.data.user);
+    console.log(user)
+
+    setMessage("Profile image updated successfully!");
+    setMessageType("success");
+
+  
+    setTimeout(() => setMessage(""), 3000);
+
+
+
+  } catch (err) {
+    console.error(err);
+      setMessage("Failed to upload image");
+    setMessageType("error");
+
+    setTimeout(() => setMessage(""), 3000);
+
+  }
+};
+
+
 
   const handleSave = () => {
     // TODO: Connect with backend to save updated profile
@@ -129,10 +192,32 @@ const b = {
     </div>
 {/* profilre Picture */}
 <div className="profilePicture">
-    <div className="avater">    <img src={Avater} alt="default avater image" className="avaterimg" /></div>
+    <div className="avater"> 
+      <input
+  type="file"
+  accept="image/*"
+  style={{ display: "none" }}
+  ref={fileInputRef}
+  onChange={handleFileChange}
+/>
+<img
+  src={user?.profileimg ? `http://localhost:5000/${user.profileimg}` : Avater}
+  alt="Profile Avatar"
+  className="avaterimg"
+  onClick={() => fileInputRef.current.click()}
+/>
+
+         </div>
+         {message && (
+  <div
+    className={`profile-message ${messageType === "success" ? "success" : "error"}`}
+  >
+    {message}
+  </div>
+)}
     <div className="username">
         <h3>{user.name}</h3>
-        <p>Student</p>
+        <p>{user.email}</p>
     </div>
 </div>
 </div>
@@ -142,7 +227,7 @@ const b = {
 <div className="plusanalysis">  
 <div className="cgc">
 {userStats.map((stats,index)=>(
-    <div key={index} className={`stats${index}`}>
+    <div key={index} className={`stats${index}`} onClick={()=> navigate(stats.path)}>
         <div className="iconstats">{stats.icon}</div>
         <div className="valuestats">
             <h4>{stats.value}</h4>
@@ -156,6 +241,7 @@ const b = {
    <WeeklyActivityChart />
 </div>
 </div>
+
 
     </div>
  

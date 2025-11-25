@@ -5,17 +5,17 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 const API_URL = 'http://localhost:5000/api/user/weekly'; 
 
 // Custom Tooltip component to show "H"
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div style={{ backgroundColor: 'white', border: '1px solid #ccc', padding: '5px' }}>
-        <p className="label">{`${label}`}</p>
-        <p className="intro">{`Active Time: ${payload[0].value} H`}</p>
-      </div>
-    );
-  }
-  return null;
-};
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div style={{ backgroundColor: 'white', border: '1px solid #ccc', padding: '5px' }}>
+          <p className="label">{`${label}`}</p>
+          <p className="intro">{`Active Time: ${payload[0].value} H`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
 const token = localStorage.getItem("token");
 
 
@@ -80,7 +80,7 @@ function WeeklyActivityChart() {
             <XAxis dataKey="name" axisLine={false} tickLine={false} />
             {/* Hiding the YAxis labels to make it clean like your example */}
             <YAxis hide={false} domain={[0, totalHours * 1.5]} /> 
-            <Tooltip content={<CustomTooltip />} />
+           <Tooltip content={<CustomTooltip />} />
             <Bar 
               dataKey="hours" 
               fill="#a29bfe" // A nice lavender color

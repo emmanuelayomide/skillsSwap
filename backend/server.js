@@ -14,6 +14,7 @@ const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 // Test route
 app.get("/", (req, res) => {
@@ -23,6 +24,8 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+
+
 app.use("/vi/user", activitesRoutes);
 // app.use("api/vi/activity", activitesRoutes);
 

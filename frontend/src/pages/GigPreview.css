@@ -1,0 +1,185 @@
+:root{
+--main-color:#9017fabb;
+--vade:#9017fa79;
+--font-family1:"Fredoka", sans-serif;
+ --font-family2:"Poppins", sans-serif;
+}
+
+
+.gigPreviewContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+.fullshare{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    padding: 10px;
+}
+.firstShare{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 80%;
+}
+
+.firstShare img{
+    width: 150px;
+}
+
+.secondShare button{
+   background-color: var(--vade);
+   padding: 10px 25px 10px 25px;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+   font-weight: 600;
+   font-family: var(--vade);
+}
+.secondShare button:hover{
+    background-color: var(--main-color);
+}
+.homecat{
+    display: flex;
+    gap: 10px;
+}
+.homecat a{
+    color: black;
+    text-decoration: none;
+}
+.homecat a:hover{
+    text-decoration: underline;
+}
+.homepluscategoryedit{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.edit button{
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.116);
+    border-radius: 8px;
+    padding: 10px 15px 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 120%;
+    cursor: pointer;
+}
+.edit button:hover{
+    background-color: #ffffff3e;
+
+}
+.cardDisplay{
+    width: 440px;
+    height: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    padding: 10px;
+    position: fixed;
+    top: 250px;
+}
+.amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.nomoney{
+    font-size: 20px;
+    color:var(--main-color);
+
+}
+.gigTitle{
+    font-weight: 500;
+    font-size: 18px;
+}
+.right{
+    color: #fff;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 12px 25px 12px 25px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.straightLine{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gigTitleandCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+}
+.fullDetails{
+    width: 55%;
+   
+
+}
+.fullDetails h1{
+    font-weight: 500;
+}
+.cards{
+    width: 40%;
+
+}
+.profileImageset{
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+.profile img{
+    width: 100%;
+
+}
+.userName{
+    font-family: var(--font-family2);
+}
+.gigImage {
+margin-top: 20px;
+}
+.gigImage img{
+    width: 100%;
+    border-radius: 3px;
+}
+.tagsPart{
+    display: flex;
+    gap: 10px;
+}
+.tagsbutton{
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    padding: 12px 25px 12px 25px;
+    border: 1px solid rgba(0, 0, 0, 0.237);
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.tagsbutton:hover{
+    background-color: #ffffff14;
+}
+
