@@ -2,11 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./Gigs.css"
 import { Link } from "lucide-react"
-// importing static images used for the gig
-import Gig1 from "../images/gig1.jpg"
-import Gig2 from "../images/gig2.jpg"
-import Gig3 from "../images/gig3.jpg"
-import Gig4 from "../images/gig4.jpg"
+
 import {useNavigate } from "react-router-dom"
 import axios from "axios";
 

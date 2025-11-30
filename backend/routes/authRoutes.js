@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router();
 const prisma = new PrismaClient();
 
-// REGISTER (SIGNUP)
+// REGISTER signing and regitering New User
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -64,7 +64,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Email and password are required" });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({ where: { email:email } });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }

@@ -68,7 +68,7 @@ router.post("/upload-profile-image", verifyToken, upload.single("profileImg"), a
     email: true,
     profileimg: true,
     createdAt: true
-  },
+  }
 });
 
     res.status(200).json({
